@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>💖 For You</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #ffd6e8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* WATERMARK */
+    .watermark {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      font-family: 'Comic Sans MS', cursive;
+      color: rgba(255,105,180,0.18);
+      font-weight: bold;
+    }
+
+    .watermark span {
+      position: absolute;
+      transform: rotate(var(--r));
+      font-size: 20px;
+      white-space: nowrap;
+    }
+
+    .screen {
+      display: none;
+      background: white;
+      width: 330px;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      z-index: 2;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .active { display: block; }
+
+    .title {
+      color: deeppink;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 25px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .yes {
+      background: hotpink;
+      color: white;
+    }
+
+    .no {
+      background: lightgray;
+      position: absolute;
+      transition: 0.15s;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid gray;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- WATERMARK TEXTS -->
+<div class="watermark">
+  <span style="top:5%;left:10%;--r:-15deg;">I love you 💖</span>
+  <span style="top:12%;left:60%;--r:10deg;">Forever mine 💕</span>
+  <span style="top:20%;left:30%;--r:-20deg;">My rooh-e-ravaan</span>
+  <span style="top:30%;left:70%;--r:15deg;">Always you 🫶</span>
+  <span style="top:40%;left:15%;--r:8deg;">Endless love</span>
+  <span style="top:50%;left:55%;--r:-10deg;">Still us</span>
+  <span style="top:60%;left:25%;--r:18deg;">My heart 💞</span>
+  <span style="top:70%;left:65%;--r:-12deg;">Only you</span>
+  <span style="top:80%;left:10%;--r:10deg;">I choose you</span>
+  <span style="top:85%;left:50%;--r:-18deg;">Always & forever</span>
+  <span style="top:15%;left:80%;--r:20deg;">Love never fades</span>
+  <span style="top:35%;left:5%;--r:-8deg;">My peace</span>
+  <span style="top:65%;left:85%;--r:14deg;">My home</span>
+  <span style="top:90%;left:30%;--r:-10deg;">Still loving you</span>
+</div>
+
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>
+    Some souls feel like home,<br>
+    even when they are far away.
+  </h3>
+  <button class="yes" onclick="go('s2')">Let's Begin</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>If you truly love me,<br>unlock it with our password 🔐</h3>
+  <input id="pass" placeholder="Enter password">
+  <br><br>
+  <button class="yes" onclick="checkPass()">Next</button>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>
+    How are you?<br>
+    I know you are doing better without me… right?
+  </h3>
+  <button class="yes" onclick="go('s4')">Yes</button>
+  <button class="no" onmouseover="moveBtn(this)">No</button>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>
+    I love you so much.<br>
+    I always wanted to keep you mine,<br>
+    but my weakness failed me 😅<br><br>
+    We have so many beautiful memories, don’t we?
+  </h3>
+  <button class="yes" onclick="go('s5')">Next</button>
+</div>
+
+<!-- SCREEN 5 -->
+<div class="screen" id="s5">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>📸 Our Memories</h3>
+  <p>Do you remember these days?</p>
+  <!-- PUT YOUR IMAGE -->
+  <img src="IMG_1567.jpeg">
+  <button class="yes" onclick="go('s6')">Next</button>
+</div>
+
+<!-- SCREEN 6 -->
+<div class="screen" id="s6">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>
+    I want to give you one more chance.<br>
+    Are you ready to try?
+  </h3>
+  <button class="yes" onclick="go('s7')">Yes</button>
+  <button class="no" onmouseover="moveBtn(this)">No</button>
+</div>
+
+<!-- SCREEN 7 -->
+<div class="screen" id="s7">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>Think again… carefully 💭</h3>
+  <button class="yes" onclick="go('s8')">Yes</button>
+  <button class="no" onmouseover="moveBtn(this)">No</button>
+</div>
+
+<!-- SCREEN 8 -->
+<div class="screen" id="s8">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>Think once more… from your heart ❤️</h3>
+  <button class="yes" onclick="go('s9')">Yes</button>
+  <button class="no" onclick="go('s10')">No</button>
+</div>
+
+<!-- NO RESULT -->
+<div class="screen" id="s10">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h3>Sorry… please forgive me 😅</h3>
+</div>
+
+<!-- YES RESULT -->
+<div class="screen" id="s9">
+  <div class="title">For my rooh-e-ravaan 💖</div>
+  <h2>I love you forever 💞</h2>
+  <p>
+    Some loves don’t need promises,<br>
+    they live quietly in the soul.
+  </p>
+  <p>Please forgive me.</p>
+  <button class="yes" onclick="endLove()">I Love You 💖</button>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function checkPass(){
+  const p = pass.value.toLowerCase();
+  if(p==="we are b squre" || p==="amar medam"){
+    go('s3');
+  } else {
+    alert("Aitaw parla na 😅");
+  }
+}
+
+function moveBtn(btn){
+  btn.style.left = Math.random()*(window.innerWidth-100)+"px";
+  btn.style.top = Math.random()*(window.innerHeight-50)+"px";
+}
+
+function endLove(){
+  alert("I love you… always ❤️");
+}
+</script>
+
+</body>
+</html>
